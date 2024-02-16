@@ -21,3 +21,7 @@
 
 ## Excepciones
 - Java maneja errores y excepciones mediante el uso de constructores de excepciones y bloques `try-catch`. Esto permite a los desarrolladores escribir un código robusto que pueda manejar situaciones excepcionales de manera controlada y elegante.
+
+[Documentación oficial de Java](https://docs.oracle.com/en/java/). 
+
+[Documentación de Java más intuitiva](https://docs.oracle.com/en/java/](https://www.w3schools.com/java/)https://www.w3schools.com/java/).
