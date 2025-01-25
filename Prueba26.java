@@ -7,17 +7,21 @@ for, while y do-while
 
 public class Prueba26{
 	public static void main(String args[]){
-			int tem1 = 0;
+			int temp1 = 0;
 			int temp2 = 1;
 			int resultado = 0;
 
 		do{
+			if(temp1<34){
+				System.out.print(temp1 + ", ");
+			}else{
+				System.out.print(temp1);
+			}
 			resultado = temp1 + temp2;
-			System.out.print(resultado + ", ");
 			temp1 = temp2;
 			temp2 = resultado;
 
-		}while(resultado < 34);
+		}while(temp1 < 35);
 	
 
 	}
