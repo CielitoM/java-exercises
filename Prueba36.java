@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class Prueba36 extends JFrame implements ActionListener{ 
-	JButton boton1, boton2, boton3;
+	private JButton boton1, boton2, boton3;
 	private JLabel label1;
 
 	public Prueba36(){
