@@ -6,12 +6,16 @@ Aplicacion de sistema vacacional
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class SistemaVacacionalApp extends JFrame implements ChangeListener{
+public class SistemaVacacionalApp extends JFrame implements ActionListener, ChangeListener{
 
 	//Elementos de la interfaz de bienvenida
-	private JRadioButton radio1, radio2, radio3;
-	private ButtonGroup bg;
+	private JLabel label1, label2, label3, imagenInicioSesion;
+	private ImageIcon image1;
+	private JTextField textField1;
+	private JButton boton1;
+
 
 	public SistemaVacacionalApp(){
 		setLayout(null); //para evitar que la ventana se ponga donde quiera.
@@ -20,49 +24,88 @@ public class SistemaVacacionalApp extends JFrame implements ChangeListener{
 		ImageIcon icono = new ImageIcon("bankIcon1.png");
 		setIconImage(icono.getImage());
 
-		bg = new ButtonGroup();
+		//Establecer el label de la ventana
+		label1 = new JLabel("Bienvenido al Sistema Vacacional de SunBank");
+		label1.setBounds(60,160,400,100); //(eje x, eje y, ancho, largo)
+		label1.setForeground(Color.WHITE);		
+		add(label1);
 
-		radio1 = new JRadioButton("640*480");
-		radio1.setBounds(10,20,100,30);
-		radio1.addChangeListener(this);
-		add(radio1);
-		bg.add(radio1);
+		//Establecer la imagen de inicio de sesion
+		image1 = new ImageIcon(getClass().getResource("logoiniciosesion.jpg"));
+		imagenInicioSesion = new JLabel(image1);
+		imagenInicioSesion.setBounds(45,30,300,150);
+		add(imagenInicioSesion);
 
-		radio2 = new JRadioButton("800*600");
-		radio2.setBounds(10,70,100,30);
-		radio2.addChangeListener(this);
-		add(radio2);
-		bg.add(radio2);
+		//Establecer el color de fondo
+		Color color1 = new Color(0, 43, 80);
+		getContentPane().setBackground(color1);
 
-		radio3 = new JRadioButton("1024*768");
-		radio3.setBounds(10,120,100,30);
-		radio3.addChangeListener(this);
-		add(radio3);
-		bg.add(radio3);
+		//textfield y label para introducir el nombre
+		label2 = new JLabel("Introduzca su nombre:");
+		label2.setBounds(60,200,400,100);
+		label2.setForeground(Color.WHITE);
+		add(label2);
+
+		textField1 = new JTextField();
+		textField1.setBounds(60,260,270,20);
+		add(textField1);
+		
+
+		//Boton para pasar a la siguiente interfaz
+		boton1 = new JButton("Ingresar");
+		boton1.setBounds(140,300,100,30);
+		add(boton1);
+		boton1.addActionListener(this);
+		boton1.setEnabled(false);
+
+		//Establecer el titulo
+		setTitle("Iniciar sesion");
+
+		//Establecer el label del pie de la pagina
+		label3 = new JLabel("©2002 The SunBank International Company.");
+		label3.setBounds(60,390,400,100); //(eje x, eje y, ancho, largo)
+		label3.setForeground(Color.WHITE);		
+		add(label3);
+		
 
 
 	}
 
-	public void stateChanged(ChangeEvent e){
+	public void actionPerformed(ActionEvent e){
+		if(e.getSource() == boton1){
 
-		if(radio1.isSelected()){
-			setSize(640,480);
+			String usuario = textField1.getText();
+			System.out.println("Se ha iniciado sesion correctamente: " + usuario);
 		}
-		if(radio2.isSelected()){
-			setSize(800,600);
-		}
-		if(radio3.isSelected()){
-			setSize(1024,768);
-		}
-
 	}
+
 	
+	public void stateChanged(ChangeEvent e){
+		
+		String usuario = textField1.getText();
+
+		if(e.getSource() == boton1){
+			if(usuario == ""){
+				System.out.println("No se ha iniciado sesion correctamente. ");
+			}else{
+				System.out.println("Se ha iniciado sesion correctamente. " + usuario);
+			
+			
+		}
+		
+		
+			
+	}
+
+
+
 	
 	public static void main(String args[]){
 		SistemaVacacionalApp formulario1 = new SistemaVacacionalApp();
-		formulario1.setBounds(0,0,350,230);
+		formulario1.setBounds(0,0,400,500);
 		formulario1.setVisible(true);
 		formulario1.setResizable(false);
+		formulario1.setLocationRelativeTo(null);
 	
 	}
 }
