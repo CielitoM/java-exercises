@@ -1,6 +1,6 @@
 /*
 
-Aplicacion de sistema vacacional
+Aplicacion de sistema vacacional.
 */
 
 import javax.swing.*;
@@ -11,7 +11,8 @@ import java.awt.event.*;
 public class SistemaVacacionalApp extends JFrame implements ActionListener, ChangeListener{
 
 	//Elementos de la interfaz de bienvenida
-	private JLabel label1, label2, label3, imagenInicioSesion;
+	private JLabel label1, label2, label3;
+	private JLabel imagenInicioSesion;
 	private ImageIcon image1;
 	private JTextField textField1;
 	private JButton boton1;
