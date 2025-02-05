@@ -50,6 +50,34 @@ public class SistemaVacacionalApp extends JFrame implements ActionListener, Chan
 		textField1 = new JTextField();
 		textField1.setBounds(60,260,270,20);
 		add(textField1);
+		//Agregar la accion de activarse con el UserInput
+		textField1.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				validateInput();
+			}	
+		});
+	
+		textField1.getDocument().addDocumentListener(new DocumentListener(){
+			@Override
+			public void insertUpdate(DocumentEvent e){
+				validateInput();
+			}
+			
+			@Override
+			public void removeUpdate(DocumentEvent e){
+				validateInput();
+			}
+			
+			@Override
+			public void changedUpdate(DocumentEvent e){
+				validateInput();
+			}
+				
+			});
+			
+			
+		
 		
 
 		//Boton para pasar a la siguiente interfaz
@@ -92,10 +120,21 @@ public class SistemaVacacionalApp extends JFrame implements ActionListener, Chan
 				System.out.println("Se ha iniciado sesion correctamente. " + usuario);
 			
 			
+			}	
+		
+		
+				
 		}
-		
-		
-			
+	}
+
+	public void validateInput(){
+		String usuario = textField1.getText();
+		if ("".equals(usuario)){
+			boton1.setEnabled(true);
+		}else{
+			boton1.setEnabled(false);
+		}
+	
 	}
 
 
