@@ -1,6 +1,6 @@
 /*
 
-Aplicacion de sistema vacacional.
+Aplicacion de sistema vacacional. Ventana de bienvenida
 */
 
 import javax.swing.*;
@@ -8,7 +8,7 @@ import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class SistemaVacacionalApp extends JFrame implements ActionListener, ChangeListener{
+public class Bienvenida extends JFrame implements ActionListener{
 
 	//Elementos de la interfaz de bienvenida
 	private JLabel label1, label2, label3;
@@ -18,7 +18,7 @@ public class SistemaVacacionalApp extends JFrame implements ActionListener, Chan
 	private JButton boton1;
 
 
-	public SistemaVacacionalApp(){
+	public Bienvenida(){
 		setLayout(null); //para evitar que la ventana se ponga donde quiera.
 
 		//Establecer el icono de la ventana
@@ -28,7 +28,7 @@ public class SistemaVacacionalApp extends JFrame implements ActionListener, Chan
 		//Establecer el label de la ventana
 		label1 = new JLabel("Bienvenido al Sistema Vacacional de SunBank");
 		label1.setBounds(60,160,400,100); //(eje x, eje y, ancho, largo)
-		label1.setForeground(Color.WHITE);		
+		label1.setForeground(Color.WHITE);
 		add(label1);
 
 		//Establecer la imagen de inicio de sesion
@@ -49,34 +49,9 @@ public class SistemaVacacionalApp extends JFrame implements ActionListener, Chan
 
 		textField1 = new JTextField();
 		textField1.setBounds(60,260,270,20);
+		textField1.setBackground(Color.WHITE);
+		textField1.setForeground(new Color(0, 43, 80));
 		add(textField1);
-		//Agregar la accion de activarse con el UserInput
-		textField1.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e){
-				validateInput();
-			}	
-		});
-	
-		textField1.getDocument().addDocumentListener(new DocumentListener(){
-			@Override
-			public void insertUpdate(DocumentEvent e){
-				validateInput();
-			}
-			
-			@Override
-			public void removeUpdate(DocumentEvent e){
-				validateInput();
-			}
-			
-			@Override
-			public void changedUpdate(DocumentEvent e){
-				validateInput();
-			}
-				
-			});
-			
-			
 		
 		
 
@@ -86,6 +61,22 @@ public class SistemaVacacionalApp extends JFrame implements ActionListener, Chan
 		add(boton1);
 		boton1.addActionListener(this);
 		boton1.setEnabled(false);
+
+		//Establecer el trigger para que se active el boton con el user input
+		textField1.addKeyListener((new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e){
+				JTextField textField = (JTextField) e.getSource();
+				String text = textField.getText();
+				if(!textField.getText().isEmpty())
+					boton1.setEnabled(true);
+				
+				else
+	
+					boton1.setEnabled(false);	
+				}
+	
+		}));
 
 		//Establecer el titulo
 		setTitle("Iniciar sesion");
@@ -108,40 +99,11 @@ public class SistemaVacacionalApp extends JFrame implements ActionListener, Chan
 		}
 	}
 
-	
-	public void stateChanged(ChangeEvent e){
-		
-		String usuario = textField1.getText();
-
-		if(e.getSource() == boton1){
-			if(usuario == ""){
-				System.out.println("No se ha iniciado sesion correctamente. ");
-			}else{
-				System.out.println("Se ha iniciado sesion correctamente. " + usuario);
-			
-			
-			}	
-		
-		
-				
-		}
-	}
-
-	public void validateInput(){
-		String usuario = textField1.getText();
-		if ("".equals(usuario)){
-			boton1.setEnabled(true);
-		}else{
-			boton1.setEnabled(false);
-		}
-	
-	}
-
 
 
 	
 	public static void main(String args[]){
-		SistemaVacacionalApp formulario1 = new SistemaVacacionalApp();
+		Bienvenida formulario1 = new Bienvenida();
 		formulario1.setBounds(0,0,400,500);
 		formulario1.setVisible(true);
 		formulario1.setResizable(false);
