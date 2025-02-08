@@ -7,7 +7,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.event.*;
 
-public class Prueba48 extends JFrame implements ChangeListener, ActionListener{
+public class Prueba48 extends JFrame implements ItemListener, ActionListener{
 	private JCheckBox check1;
 	private JLabel label1;
 	private JButton boton1;
