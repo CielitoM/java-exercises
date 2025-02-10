@@ -11,16 +11,18 @@ import java.awt.event.*;
 public class PantallaPrincipal extends JFrame implements ActionListener, ItemListener{
 
 	//Elementos de la interfaz de la pantalla principal
-	private JLabel label1, label2, label3, label4, label5, label6;
+	private JLabel label1, label2, label3, label4, label5, label6, label7;
 	private JLabel imagenInicioSesion;
 	private ImageIcon image1;
 	private JTextField textField1, textField2;
-	private JButton boton1;
+	private JButton boton1, boton2, boton3;
 	private JComboBox combo1, combo2;
 
 	private JMenuBar menubar;
-	private JMenu menu1, menu2;
-	private JMenuItem menuitem1, menuitem2, menuitem3;
+	private JMenu menu1, menu2, menu3;
+	private JMenuItem menuitem1, menuitem2, menuitem3, menuitem4;
+
+	private JTextArea textArea1;
 
 
 
@@ -46,7 +48,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 		//Establecer la imagen de inicio de sesion
 		image1 = new ImageIcon(getClass().getResource("logoiniciosesion.jpg"));
 		imagenInicioSesion = new JLabel(image1);
-		imagenInicioSesion.setBounds(260,30,300,150);
+		imagenInicioSesion.setBounds(250,30,300,150);
 		add(imagenInicioSesion);
 
 		//Establecer el color de fondo
@@ -84,7 +86,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 
 		//Establecer el label del pie de la pagina
 		label3 = new JLabel(" 2002 The SunBank International Company.");
-		label3.setBounds(525,590,400,100); //(eje x, eje y, ancho, largo)
+		label3.setBounds(520,560,400,100); //(eje x, eje y, ancho, largo)
 		label3.setForeground(Color.WHITE);		
 		add(label3);
 		
@@ -167,6 +169,10 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 
 		menu2 = new JMenu("Color de fondo");
 		menu1.add(menu2);
+		
+		menu3 = new JMenu("Ver");
+		menubar.add(menu3);
+		
 
 
 		menuitem1 = new JMenuItem("Azul");
@@ -181,6 +187,36 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 		menuitem3.addActionListener(this);
 		menu2.add(menuitem3);
 
+		menuitem4 = new JMenuItem("Acerca de");
+		menuitem4.addActionListener(this);
+		menu3.add(menuitem4);
+
+		//Agregar el Jtextarea donde se despliega el resultado
+		
+		label7 = new JLabel("Resultado: ");
+		label7.setBounds(60,375,400,100);
+		label7.setForeground(Color.WHITE);
+		label7.setFont(new Font("Arial", Font.PLAIN, 20));
+		add(label7);
+		
+		
+		textArea1 = new JTextArea();
+		textArea1.setBounds(60,440,680,20);
+		add(textArea1);
+
+		//Agregar el boton de limpiar campos
+		boton2 = new JButton("Nuevo calculo");
+		boton2.setBounds(60,480,150,30);
+		add(boton2);
+		boton2.addActionListener(this);
+
+		//Agregar el boton de volver a la pantalla de bienvenida
+		boton3 = new JButton("Volver a inicio");
+		boton3.setBounds(320,560,150,30);
+		add(boton3);
+		boton3.addActionListener(this);
+
+
 	}
 
 	public void actionPerformed(ActionEvent e){
@@ -188,6 +224,15 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 
 			String usuario = textField1.getText();
 			System.out.println("Se ha iniciado sesion correctamente: " + usuario);
+		}
+		if(e.getSource() == boton2){
+			//limpiar campos
+			textField1.setText("");
+			textField2.setText("");
+			
+		}
+		if(e.getSource() == boton3){
+			//volver a inicio
 		}
 
 		Container fondo = this.getContentPane();
@@ -200,6 +245,9 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 		}
 		if(e.getSource() == menuitem3){
 			fondo.setBackground(new Color(237, 137, 61));
+		}
+		if(e.getSource() == menuitem4){
+			String creditos = JOptionPane.showInputDialog("Desarrollado por Maria Melgarejo");
 		}
 
 
