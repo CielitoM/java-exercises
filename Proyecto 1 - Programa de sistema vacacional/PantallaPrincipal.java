@@ -222,9 +222,57 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 	public void actionPerformed(ActionEvent e){
 		if(e.getSource() == boton1){
 
-			String usuario = textField1.getText();
-			System.out.println("Se ha iniciado sesion correctamente: " + usuario);
+			String nombre = textField1.getText();
+			String apellido = textField2.getText();
+			int antiguedad = ParseString.combo1.getSelection();
+			String departamento = combo2.getSelection();
+			
+			//Parte de gestion de datos
+			if(departamento == 1){
+				if(antiguedad == 1){
+					System.out.println(nombre + " " + apellido " tiene derecho a 6 dias.");
+			
+				}else if(antiguedad >=2 && antiguedad <=6){
+					System.out.println(nombre + " tiene derecho a 14 dias.");
+			
+				}else if(antiguedad >= 7){
+					System.out.println(nombre + " tiene derecho a 20 dias.");
+				}
+			}
+	
+
+			if(departamento == 2){
+				if(antiguedad == 1){
+					System.out.println(nombre + " tiene derecho a 7 dias.");
+			
+				}else if(antiguedad >=2 && antiguedad <=6){
+					System.out.println(nombre + " tiene derecho a 15 dias.");
+			
+				}else if(antiguedad >= 7){
+					System.out.println(nombre + " tiene derecho a 22 dias.");
+				
+				}
+		
+			}
+
+
+			if(departamento == 3){
+				if(antiguedad == 1){
+					System.out.println(nombre + " tiene derecho a 10 dias.");
+			
+				}else if(antiguedad >=2 && antiguedad <=6){
+					System.out.println(nombre + " tiene derecho a 20 dias.");
+			
+				}else if(antiguedad >= 7){
+					System.out.println(nombre + " tiene derecho a 30 dias.");
+
+				}
+
+			}
+
+
 		}
+
 		if(e.getSource() == boton2){
 			//limpiar campos
 			textField1.setText("");
