@@ -224,24 +224,27 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 
 			String nombre = textField1.getText();
 			String apellido = textField2.getText();
-			int antiguedad;
-			String departamento = combo2.SelectedText();
+			int antiguedad = 0;
+			String antiguedadSeleccionada = combo1.getSelectedItem().toString();
+			String departamento = combo2.getSelectedItem().toString();
+
 		
 			//Parte de obtener la antiguedad
-			if(combo1.SelectedText == "1 año de antiguedad"){
+			if(antiguedadSeleccionada == "1 año de servicio"){
 				antiguedad = 1;
 			}
 			//Parte de obtener la antiguedad
-			if(combo1.SelectedText == "2 a 6 años de servicio"){
+			if(antiguedadSeleccionada == "2 a 6 años de servicio"){
 				antiguedad = 3;
 			}
 			//Parte de obtener la antiguedad
-			if(combo1.SelectedText == "A partir de 7 años"){
+			if(antiguedadSeleccionada == "A partir de 7 años de servicio"){
 				antiguedad = 7;
 			}
 			
+
 			//Parte de gestion de datos
-			if(departamento == "Gerencia"){
+			if(departamento == "Atención al cliente"){
 				if(antiguedad == 1){
 					System.out.println(nombre + " " + apellido + " tiene derecho a 6 dias.");
 			
@@ -254,7 +257,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 			}
 	
 
-			if(departamento == "otro"){
+			if(departamento == "Logística"){
 				if(antiguedad == 1){
 					System.out.println(nombre + " tiene derecho a 7 dias.");
 			
@@ -269,7 +272,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 			}
 
 
-			if(departamento == "Otro"){
+			if(departamento == "Gerentes"){
 				if(antiguedad == 1){
 					System.out.println(nombre + " tiene derecho a 10 dias.");
 			
