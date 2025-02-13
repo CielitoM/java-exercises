@@ -12,8 +12,8 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 
 	//Elementos de la interfaz de la pantalla principal
 	private JLabel label1, label2, label3, label4, label5, label6, label7;
-	private JLabel imagenInicioSesion;
-	private ImageIcon image1;
+	private JLabel imagenInicioSesion, imagenExpresion1, imagenExpresion2, imagenExpresion3;
+	private ImageIcon image1, image2;
 	private JTextField textField1, textField2;
 	private JButton boton1, boton2, boton3;
 	private JComboBox combo1, combo2;
@@ -21,8 +21,10 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 	private JMenuBar menubar;
 	private JMenu menu1, menu2, menu3;
 	private JMenuItem menuitem1, menuitem2, menuitem3, menuitem4;
+	private boolean bandera1, bandera2, bandera3;
 
 	private JTextArea textArea1;
+	
 
 
 
@@ -49,7 +51,29 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 		image1 = new ImageIcon(getClass().getResource("logoiniciosesion.jpg"));
 		imagenInicioSesion = new JLabel(image1);
 		imagenInicioSesion.setBounds(250,30,300,150);
-		add(imagenInicioSesion);
+		add(imagenInicioSesion); 
+
+
+
+		//Establecer el label de la expresion ! para los años de servicio
+		image2 = new ImageIcon(getClass().getResource("expresion30x42.png"));
+		imagenExpresion1 = new JLabel(image2);
+		imagenExpresion1.setBounds(410,233,30,42);
+		add(imagenExpresion1);
+		bandera1 = false;
+
+		//Establecer el label de la expresion ! para el departamento
+		imagenExpresion2 = new JLabel(image2);
+		imagenExpresion2.setBounds(410,295,30,42);
+		add(imagenExpresion2);
+		bandera2 = false;
+
+		//Establecer el label de la expresion ! para el nombre
+		imagenExpresion3 = new JLabel(image2);
+		imagenExpresion3.setBounds(20,233,30,42);
+		add(imagenExpresion3);
+		bandera3 = false;
+	
 
 		//Establecer el color de fondo
 		Color color1 = new Color(0, 43, 80);
@@ -98,26 +122,10 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 		boton1.addActionListener(this);
 		boton1.setEnabled(false);
 
-		//Establecer el trigger para que se active el boton con el user input
-		textField1.addKeyListener((new KeyAdapter() {
-			@Override
-			public void keyReleased(KeyEvent e){
-				JTextField textField = (JTextField) e.getSource();
-				String text = textField.getText();
-				if(!textField.getText().isEmpty())
-					boton1.setEnabled(true);
-				
-				else
-	
-					boton1.setEnabled(false);	
-				}
-	
-		}));
-
 
 		//Label indicador de seleccionar la cantidad de a os de servicios
 
-		label6 = new JLabel("Seleccionar los años de servicios: ");
+		label6 = new JLabel("Seleccionar los anhos de servicios: ");
 		label6.setFont(new Font("Arial", Font.PLAIN, 20));
 		label6.setBounds(450,200,400,100);
 		label6.setForeground(Color.WHITE);
@@ -130,10 +138,12 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 		combo1.setBounds(450,260,270,20);
 		add(combo1);
 
-		combo1.addItem("1 año de servicio");
-		combo1.addItem("2 a 6 años de servicio");
-		combo1.addItem("A partir de 7 años de servicio");
+		combo1.addItem("Seleccionar");
+		combo1.addItem("1 anho de servicio");
+		combo1.addItem("2 a 6 anhos de servicio");
+		combo1.addItem("A partir de 7 anhos de servicio");
 		combo1.addItemListener(this);
+		combo1.addActionListener(this);
 
 
 
@@ -151,9 +161,10 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 		combo2 = new JComboBox();
 		combo2.setBounds(450,325,270,20);
 		add(combo2);
-		
-		combo2.addItem("Atención al cliente");
-		combo2.addItem("Logística");
+
+		combo2.addItem("Seleccionar");
+		combo2.addItem("Atencion al cliente");
+		combo2.addItem("Logistica");
 		combo2.addItem("Gerentes");
 		combo2.addItemListener(this);
 
@@ -215,6 +226,37 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 		boton3.setBounds(320,560,150,30);
 		add(boton3);
 		boton3.addActionListener(this);
+
+		//Establecer el trigger para que se active el boton con el user input
+		textField1.addKeyListener((new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e){
+				JTextField textField = (JTextField) e.getSource();
+				String text = textField.getText();
+	
+				JComboBox comboBox = (JComboBox) e.getSource();
+				String Seleccion1 = combo1.getSelectedItem().toString();
+
+				if (!textField.getText().isEmpty()) {
+					//boton1.setEnabled(true); 
+					imagenExpresion3.setVisible(false);
+					
+					bandera3 = true;
+				
+				}else{
+	
+					boton1.setEnabled(false);
+					imagenExpresion3.setVisible(true);	
+				}
+	
+				if(Seleccion1 == "Seleccion"){
+					imagenExpresion3.setVisible(true);
+					bandera1 = true;
+				}
+	
+			}
+
+		}));
 
 
 	}
