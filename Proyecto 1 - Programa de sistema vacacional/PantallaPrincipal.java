@@ -167,6 +167,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 		combo2.addItem("Logistica");
 		combo2.addItem("Gerentes");
 		combo2.addItemListener(this);
+		combo2.addActionListener(this);
 
 
 	
@@ -233,25 +234,17 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 			public void keyReleased(KeyEvent e){
 				JTextField textField = (JTextField) e.getSource();
 				String text = textField.getText();
-	
-				JComboBox comboBox = (JComboBox) e.getSource();
-				String Seleccion1 = combo1.getSelectedItem().toString();
-
 				if (!textField.getText().isEmpty()) {
-					//boton1.setEnabled(true); 
 					imagenExpresion3.setVisible(false);
-					
 					bandera3 = true;
-				
+					if(bandera1 == true && bandera2 == true && bandera3 == true){
+					boton1.setEnabled(true); 
+	}
 				}else{
 	
 					boton1.setEnabled(false);
-					imagenExpresion3.setVisible(true);	
-				}
-	
-				if(Seleccion1 == "Seleccion"){
 					imagenExpresion3.setVisible(true);
-					bandera1 = true;
+					bandera3 = false;	
 				}
 	
 			}
@@ -262,16 +255,36 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 	}
 
 	public void actionPerformed(ActionEvent e){
-		if(e.getSource() == boton1){
-
 			String nombre = textField1.getText();
 			String apellido = textField2.getText();
 			int antiguedad = 0;
-			String antiguedadSeleccionada = combo1.getSelectedItem().toString();
+			String antiguedadSeleccionada = combo1.getSelectedItem().toString();			
 			String departamento = combo2.getSelectedItem().toString();
 
+		if(e.getSource() == combo1){
+			if(antiguedadSeleccionada != "Seleccionar"){
+				imagenExpresion1.setVisible(false);
+				bandera1 = true;
+			}else{
+				imagenExpresion1.setVisible(true);
+				bandera1 = false;
+			}
 		
-			//Parte de obtener la antiguedad
+		}
+
+		if(e.getSource() == combo2){
+			if(departamento != "Seleccionar"){
+				imagenExpresion2.setVisible(false);
+				bandera2 = true;
+			}else{
+				imagenExpresion2.setVisible(true);
+				bandera2 = false;
+			}
+		
+		}
+
+		if(e.getSource() == boton1){
+
 			if(antiguedadSeleccionada == "1 año de servicio"){
 				antiguedad = 1;
 			}
