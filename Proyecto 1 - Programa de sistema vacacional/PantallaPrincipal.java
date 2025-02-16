@@ -239,7 +239,10 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 					bandera3 = true;
 					if(bandera1 == true && bandera2 == true && bandera3 == true){
 					boton1.setEnabled(true); 
-	}
+					}else{
+					boton1.setEnabled(false);
+					}
+
 				}else{
 	
 					boton1.setEnabled(false);
@@ -269,6 +272,13 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 				imagenExpresion1.setVisible(true);
 				bandera1 = false;
 			}
+			if(bandera1 == true && bandera2 == true && bandera3 == true){
+					boton1.setEnabled(true); 
+			}else{
+					boton1.setEnabled(false);
+			}
+
+			
 		
 		}
 
@@ -280,47 +290,54 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 				imagenExpresion2.setVisible(true);
 				bandera2 = false;
 			}
+			if(bandera1 == true && bandera2 == true && bandera3 == true){
+					boton1.setEnabled(true); 
+			}else{
+					boton1.setEnabled(false);
+			}
+
+
 		
 		}
 
 		if(e.getSource() == boton1){
 
-			if(antiguedadSeleccionada == "1 año de servicio"){
+			if(antiguedadSeleccionada == "1 anho de servicio"){
 				antiguedad = 1;
 			}
 			//Parte de obtener la antiguedad
-			if(antiguedadSeleccionada == "2 a 6 años de servicio"){
+			if(antiguedadSeleccionada == "2 a 6 anhos de servicio"){
 				antiguedad = 3;
 			}
 			//Parte de obtener la antiguedad
-			if(antiguedadSeleccionada == "A partir de 7 años de servicio"){
+			if(antiguedadSeleccionada == "A partir de 7 anhos de servicio"){
 				antiguedad = 7;
 			}
 			
 
 			//Parte de gestion de datos
-			if(departamento == "Atención al cliente"){
+			if(departamento == "Atencion al cliente"){
 				if(antiguedad == 1){
-					System.out.println(nombre + " " + apellido + " tiene derecho a 6 dias.");
+					textArea1.setText(nombre + " " + apellido + " tiene derecho a 6 dias.");
 			
 				}else if(antiguedad >=2 && antiguedad <=6){
-					System.out.println(nombre + " tiene derecho a 14 dias.");
+					textArea1.setText(nombre +" " + apellido +  " tiene derecho a 14 dias.");
 			
 				}else if(antiguedad >= 7){
-					System.out.println(nombre + " tiene derecho a 20 dias.");
+					textArea1.setText(nombre +" " + apellido +  " tiene derecho a 20 dias.");
 				}
 			}
 	
 
-			if(departamento == "Logística"){
+			if(departamento == "Logistica"){
 				if(antiguedad == 1){
-					System.out.println(nombre + " tiene derecho a 7 dias.");
+					textArea1.setText(nombre +" " + apellido +  " tiene derecho a 7 dias.");
 			
 				}else if(antiguedad >=2 && antiguedad <=6){
-					System.out.println(nombre + " tiene derecho a 15 dias.");
+					textArea1.setText(nombre +" " + apellido +  " tiene derecho a 15 dias.");
 			
 				}else if(antiguedad >= 7){
-					System.out.println(nombre + " tiene derecho a 22 dias.");
+					textArea1.setText(nombre +" " + apellido +  " tiene derecho a 22 dias.");
 				
 				}
 		
@@ -329,13 +346,13 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 
 			if(departamento == "Gerentes"){
 				if(antiguedad == 1){
-					System.out.println(nombre + " tiene derecho a 10 dias.");
+					textArea1.setText(nombre +" " + apellido +  " tiene derecho a 10 dias.");
 			
 				}else if(antiguedad >=2 && antiguedad <=6){
-					System.out.println(nombre + " tiene derecho a 20 dias.");
+					textArea1.setText(nombre +" " + apellido +  " tiene derecho a 20 dias.");
 			
 				}else if(antiguedad >= 7){
-					System.out.println(nombre + " tiene derecho a 30 dias.");
+					textArea1.setText(nombre +" " + apellido +  " tiene derecho a 30 dias.");
 
 				}
 
@@ -348,6 +365,12 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 			//limpiar campos
 			textField1.setText("");
 			textField2.setText("");
+			combo1.setSelectedIndex(0);
+			combo2.setSelectedIndex(0);
+			//Establecer la imagen de expresion 3 activa
+			imagenExpresion3.setVisible(true);
+			boton1.setEnabled(false);
+			textArea1.setText("");
 			
 		}
 		if(e.getSource() == boton3){
