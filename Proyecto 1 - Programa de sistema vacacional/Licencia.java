@@ -18,14 +18,21 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener{
 	private JTextArea textArea1;
 	private JScrollPane scrollpane1;
 	private JCheckBox check1;
+	String nombre = "";
 
 
 	public Licencia(){
 		setLayout(null); //para evitar que la ventana se ponga donde quiera.
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		//Establecer el icono de la ventana
 		ImageIcon icono = new ImageIcon("bankIcon1.png");
 		setIconImage(icono.getImage());
+
+		//Recuperar el nombre de usuario de la clase bienvenida
+		Bienvenida ventanaBienvenida = new Bienvenida();
+		nombre = ventanaBienvenida.texto;
+		
 
 		//Establecer el label de la ventana
 		label1 = new JLabel("TÉRMINOS Y CONDICIONES");
@@ -88,8 +95,8 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener{
 		add(scrollpane1);
 
 		//Establecer el checkBox de aceptar terms and conditions
-		check1 = new JCheckBox("Acepto");
-		check1.setBounds(30,330,100,30);
+		check1 = new JCheckBox("Yo, " + nombre + ", acepto.");
+		check1.setBounds(30,330,350,30);
 		check1.addChangeListener(this);
 		add(check1);
 
@@ -114,10 +121,20 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener{
 
 	public void actionPerformed(ActionEvent e){
 		if(e.getSource() == boton1){
-			
+			PantallaPrincipal formulario1 = new PantallaPrincipal();
+			formulario1.setBounds(0,0,800,700);
+			formulario1.setVisible(true);
+			formulario1.setResizable(false);
+			formulario1.setLocationRelativeTo(null);
+			this.setVisible(false);
 		}
 		if(e.getSource() == boton2){
-				
+			Bienvenida formulario1 = new Bienvenida();
+			formulario1.setBounds(0,0,400,500);
+			formulario1.setVisible(true);
+			formulario1.setResizable(false);
+			formulario1.setLocationRelativeTo(null);
+			this.setVisible(false);
 		}
 	}
 

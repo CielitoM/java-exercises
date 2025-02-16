@@ -24,12 +24,14 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 	private boolean bandera1, bandera2, bandera3;
 
 	private JTextArea textArea1;
+	String nombreAdministrador = "";
 	
 
 
 
 	public PantallaPrincipal(){
 		setLayout(null); //para evitar que la ventana se ponga donde quiera.
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		//Establecer el titulo
 		setTitle("Sistema Vacacional");
@@ -38,10 +40,14 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 		ImageIcon icono = new ImageIcon("bankIcon1.png");
 		setIconImage(icono.getImage());
 
+		//Recuperar el nombre del usuario que ha ingresado
+		Bienvenida ventanaBienvenida = new Bienvenida();
+		nombreAdministrador = ventanaBienvenida.texto;
+
 		//Establecer el label de la ventana
 		String usuario = new String();
 		usuario = "Usuario";
-		label1 = new JLabel("Bienvenido, "+ usuario);
+		label1 = new JLabel("Bienvenido/a, "+ nombreAdministrador);
 		label1.setBounds(270,160,400,100); //(eje x, eje y, ancho, largo)
 		label1.setForeground(Color.WHITE);
 		label1.setFont(new Font("Arial", Font.PLAIN, 30));
@@ -123,7 +129,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 		boton1.setEnabled(false);
 
 
-		//Label indicador de seleccionar la cantidad de a os de servicios
+		//Label indicador de seleccionar la cantidad de anhos de servicios
 
 		label6 = new JLabel("Seleccionar los anhos de servicios: ");
 		label6.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -132,7 +138,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 		add(label6);
 
 
-		//Agregar el ComboBox para seleccionar la cantidad de a os de servicio
+		//Agregar el ComboBox para seleccionar la cantidad de anhos de servicio
 		
 		combo1 = new JComboBox();
 		combo1.setBounds(450,260,270,20);
@@ -375,6 +381,13 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 		}
 		if(e.getSource() == boton3){
 			//volver a inicio
+			Bienvenida formulario1 = new Bienvenida();
+			formulario1.setBounds(0,0,400,500);
+			formulario1.setVisible(true);
+			formulario1.setResizable(false);
+			formulario1.setLocationRelativeTo(null);
+			this.setVisible(false);
+
 		}
 
 		Container fondo = this.getContentPane();
@@ -389,7 +402,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener, ItemLis
 			fondo.setBackground(new Color(237, 137, 61));
 		}
 		if(e.getSource() == menuitem4){
-			String creditos = JOptionPane.showInputDialog("Desarrollado por Maria Melgarejo");
+			JOptionPane.showMessageDialog(null, "Desarrollado por Maria Melgarejo", "Acerca de", JOptionPane.PLAIN_MESSAGE);
 		}
 
 

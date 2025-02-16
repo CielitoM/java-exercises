@@ -16,10 +16,13 @@ public class Bienvenida extends JFrame implements ActionListener{
 	private ImageIcon image1;
 	private JTextField textField1;
 	private JButton boton1;
+	public static String texto = "";
 
 
 	public Bienvenida(){
 		setLayout(null); //para evitar que la ventana se ponga donde quiera.
+		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		//Establecer el icono de la ventana
 		ImageIcon icono = new ImageIcon("bankIcon1.png");
@@ -93,9 +96,14 @@ public class Bienvenida extends JFrame implements ActionListener{
 
 	public void actionPerformed(ActionEvent e){
 		if(e.getSource() == boton1){
-
-			String usuario = textField1.getText();
-			System.out.println("Se ha iniciado sesion correctamente: " + usuario);
+			texto = textField1.getText().trim();
+			
+				Licencia formulario1 = new Licencia();
+				formulario1.setBounds(0,0,750,500);
+				formulario1.setVisible(true);
+				formulario1.setResizable(false);
+				formulario1.setLocationRelativeTo(null);
+				this.setVisible(false);
 		}
 	}
 
