@@ -14,7 +14,7 @@ public class Prueba1 {
         String cadena;
         Scanner entrada = new Scanner(System.in);
         
-        System.out.println("Ingrese la cadena: ");
+        System.out.println("Ingrese la cadena:  ");
         cadena = entrada.nextLine();
         
         System.out.println("\n");
