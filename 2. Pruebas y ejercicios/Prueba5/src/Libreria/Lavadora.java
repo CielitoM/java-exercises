@@ -1,3 +1,5 @@
+package Libreria;
+
 /*
  Samsung solicita el desarrollo de una clase programada en Java, para el 
 funcionamiento lógico de su nueva línea de lavadoras, misma que puedan implementar
@@ -26,10 +28,10 @@ public class Lavadora {
     private void Llenado(){ //este metodo procesa el llenado de la lavadora
         if(kilos <=12){
             llenadoCompleto = 1;
-            System.out.print("Llenando...");
-            System.out.print("Llenado completo");
+            System.out.println("Llenando...");
+            System.out.println("Llenado completo");
         }else{
-            System.out.print("La carga de ropa es muy pesada, reduce la carga");
+            System.out.println("La carga de ropa es muy pesada, reduce la carga");
         }
     }
     
@@ -64,7 +66,7 @@ public class Lavadora {
     public void CicloFinalizado(){ //Se ha finalizado el ciclo
         Secado();
         if(SecadoCompleto == 1) {
-            System.out.print("Se ha finalizado el ciclo.");
+            System.out.println("Se ha finalizado el ciclo.");
         }
     }
     
