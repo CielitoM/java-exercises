@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package lavadora_uno;
 
 import java.util.Scanner;
@@ -28,6 +24,10 @@ public class LavadoraMain {
         int tipo = entrada.nextInt();
         
         Lavadora lavadora = new Lavadora(kilos, tipo);
+        //modificado para probar metodos getter y setter
+        lavadora.setTipo(2);
+        //Consultar el valor
+        System.out.println("El tipo de ropa es: " + lavadora.getTipo());
         lavadora.CicloFinalizado();
      
     }

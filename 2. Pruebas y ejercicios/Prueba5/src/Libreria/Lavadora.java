@@ -70,4 +70,15 @@ public class Lavadora {
         }
     }
     
+    //Setter y Getter
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+    
+    
 }
