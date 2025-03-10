@@ -6,7 +6,7 @@ import java.util.Scanner;
  *
  * @author Cielito
  */
-public class ClasePadre_Abstracta {
+public abstract class ClasePadre_Abstracta {
      protected int transacciones, retiro, deposito;
      private static int saldo;
      Scanner entrada = new Scanner(System.in);
@@ -45,5 +45,27 @@ public class ClasePadre_Abstracta {
          } 
            
          }while(bandera !=2);
+     }
+     
+     //Metodo para solicitar cantidad de retiro
+     public void Retiro(){
+        retiro = entrada.nextInt(); 
+     }
+     
+     //Metodo para solicitar el deposito
+     public void Deposito(){
+         deposito = entrada.nextInt();
+     }
+     
+     //Metodo abstracto
+     public abstract void Transacciones();
+     
+     //Metodos setter y getter
+     public int getSaldo(){
+         return saldo;
+     }
+     
+     public void setSaldo(int saldo){
+         this.saldo = saldo;
      }
 }
