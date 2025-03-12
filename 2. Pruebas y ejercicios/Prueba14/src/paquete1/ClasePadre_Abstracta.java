@@ -33,15 +33,19 @@ public abstract class ClasePadre_Abstracta {
                }while(bandera == 0);
             
          if(seleccion == 1){
-         
+             ClasePadre_Abstracta mensajero = new ClaseHija_Consulta();
+             mensajero.Transacciones();
          }else if(seleccion == 2){
-         
+             ClasePadre_Abstracta mensajero = new ClaseHija_Retiro();
+             mensajero.Transacciones();
          }else if(seleccion == 3){
-         
+             ClasePadre_Abstracta mensajero = new ClaseHija_Deposito();
+             mensajero.Transacciones();
          }else if(seleccion == 4){
              System.out.println("-----------------------");
              System.out.println("Gracias, vuelva pronto!");
              System.out.println("-----------------------");
+             bandera = 2;
          } 
            
          }while(bandera !=2);
