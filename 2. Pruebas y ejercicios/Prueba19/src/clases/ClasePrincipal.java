@@ -18,7 +18,13 @@ public class ClasePrincipal {
         
         
         hilo2.start();
+        hilo2.interrupt();
         
+        try{
+           hilo2.sleep(1000); 
+        }catch(InterruptedException e){
+            System.out.println("Error en el hilo 2 " + e);
+        }
         
     }
 }
