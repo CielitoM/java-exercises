@@ -1,5 +1,7 @@
 package clases;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Cielito
@@ -57,6 +59,21 @@ public class Cola {
     
     //Metodo para mostrar el contenido de la cola
     public void MostrarContenido(){
+        Nodo recorrido = inicioCola;
+        String ColaInvertida = "";
         
+        while(recorrido != null){
+            Cola += recorrido.informacion + " ";
+            recorrido = recorrido.siguiente;
+        }
+        
+        String cadena [] = Cola.split(" "); 
+        
+        for (int i = cadena.length - 1 ; i >= 0; i--) {
+            ColaInvertida += " " + cadena[i];
+        }
+        
+        JOptionPane.showMessageDialog(null, ColaInvertida);
+        Cola = "";
     }
 }
