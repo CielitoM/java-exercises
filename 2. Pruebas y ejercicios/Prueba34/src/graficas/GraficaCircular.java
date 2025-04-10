@@ -46,16 +46,17 @@ public class GraficaCircular extends javax.swing.JFrame {
 
         jLabel4.setText("Azul:");
 
-        txt_rojo.setText("jTextField1");
         txt_rojo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_rojoActionPerformed(evt);
             }
         });
 
-        txt_verde.setText("jTextField1");
-
-        txt_azul.setText("jTextField1");
+        txt_azul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_azulActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Graficar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -106,9 +107,9 @@ public class GraficaCircular extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txt_rojo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_rojo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -128,6 +129,10 @@ public class GraficaCircular extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txt_azulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_azulActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_azulActionPerformed
 
     /**
      * @param args the command line arguments
