@@ -1,8 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package graficas;
+
+import java.awt.Graphics;
 
 /**
  *
@@ -15,7 +13,10 @@ public class GraficaCircular extends javax.swing.JFrame {
      */
     public GraficaCircular() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
+    
+    boolean bandera = false;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -127,7 +128,9 @@ public class GraficaCircular extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_rojoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // Acciones a realizar cuando se presiona el boton de graficar
+        bandera = true;
+        repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txt_azulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_azulActionPerformed
@@ -179,4 +182,17 @@ public class GraficaCircular extends javax.swing.JFrame {
     private javax.swing.JTextField txt_rojo;
     private javax.swing.JTextField txt_verde;
     // End of variables declaration//GEN-END:variables
+
+//Metodo pain
+    public void paint(Graphics g){
+        super.paint(g);
+        if(bandera == true){
+            String string_rojo = txt_rojo.getText();
+            String string_verde = txt_verde.getText();
+            String string_azul = txt_azul.getText();
+        }
+    }
+    
+    
 }
+
