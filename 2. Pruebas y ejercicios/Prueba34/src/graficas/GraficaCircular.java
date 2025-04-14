@@ -5,7 +5,7 @@ import java.awt.Graphics;
 
 /**
  *
- * @author Cielito
+ * @author Cielito M.
  */
 public class GraficaCircular extends javax.swing.JFrame {
 
